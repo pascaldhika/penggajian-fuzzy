@@ -63,8 +63,8 @@ class Data_Penggajian extends CI_Controller {
             $bulantahun = $bulan.$tahun;
         }
         $data['potongan'] = $this->ModelPenggajian->get_data('potongan_gaji')->result();
-        $data['gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai,
-            data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok,
+        $data['gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai, data_pegawai.pendidikan,
+            data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok, data_jabatan.gaji_min, data_jabatan.gaji_max,
             data_kehadiran.hadir, data_kehadiran.sakit, data_kehadiran.alpha 
             FROM data_pegawai
             INNER JOIN data_kehadiran ON data_kehadiran.nik = data_pegawai.nik
