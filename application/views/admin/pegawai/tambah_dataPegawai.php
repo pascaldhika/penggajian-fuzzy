@@ -48,6 +48,18 @@
 			</div>
 
 			<div class="form-group">
+				<label>Pendidikan</label>
+				<select name="pendidikan" class="form-control">
+					<option value="">--Pilih Pendidikan--</option>
+					<option value="SMA">SMA</option>
+					<option value="D3">D3</option>
+					<option value="S1">S1</option>
+					<option value="S2">S2</option>
+				</select>
+				<?php echo form_error('pendidikan', '<div class="text-small text-danger"> </div>')?>
+			</div>
+
+			<div class="form-group">
 				<label>Jabatan</label>
 				<select name="jabatan" class="form-control">
 					<option value="">--Pilih Jabatan--</option>

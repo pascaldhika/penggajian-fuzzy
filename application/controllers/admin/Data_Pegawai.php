@@ -54,6 +54,7 @@ class Data_Pegawai extends CI_Controller {
 			$status			= $this->input->post('status');
 			$hak_akses		= $this->input->post('hak_akses');
 			$photo			= $_FILES['photo']['name'];
+			$pendidikan		= $this->input->post('pendidikan');
 			if($photo=''){}else{
 				$config['upload_path'] 		= './photo';
 				$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
@@ -78,6 +79,7 @@ class Data_Pegawai extends CI_Controller {
 				'status' 		=> $status,
 				'hak_akses' 	=> $hak_akses,
 				'photo' 		=> $photo,
+				'pendidikan' 	=> $pendidikan,
 			);
 
 			$this->ModelPenggajian->insert_data($data, 'data_pegawai');
@@ -122,6 +124,7 @@ class Data_Pegawai extends CI_Controller {
 			$status			= $this->input->post('status');
 			$hak_akses		= $this->input->post('hak_akses');
 			$photo			= $_FILES['photo']['name'];
+			$pendidikan		= $this->input->post('pendidikan');
 			if($photo){
 				$config['upload_path'] 		= './photo';
 				$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
@@ -146,6 +149,7 @@ class Data_Pegawai extends CI_Controller {
 				'tanggal_masuk' => $tanggal_masuk,
 				'status' 		=> $status,
 				'hak_akses' 	=> $hak_akses,
+				'pendidikan' 	=> $pendidikan,
 			);
 
 			$where = array(

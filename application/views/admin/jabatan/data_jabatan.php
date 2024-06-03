@@ -15,10 +15,12 @@
            <tr>
               <th class="text-center">No</th>
               <th class="text-center">Nama Jabatan</th>
-              <th class="text-center">Gaji Pokok</th>
+              <!-- <th class="text-center">Gaji Pokok</th>
               <th class="text-center">Tunjangan Transport</th>
               <th class="text-center">Uang Makan</th>
-              <th class="text-center">Total</th>
+              <th class="text-center">Total</th> -->
+              <th class="text-center">Gaji Minimal</th>
+              <th class="text-center">Gaji Maksimal</th>
               <th class="text-center">Actions</th>
            </tr>
          </thead>
@@ -27,10 +29,12 @@
             <tr>
               <td class="text-center"><?php echo $no++ ?></td>
               <td class="text-center"><?php echo $j->nama_jabatan ?></td>
-              <td class="text-center">Rp. <?php echo number_format($j->gaji_pokok,0,',','.')?></td>
+              <!-- <td class="text-center">Rp. <?php echo number_format($j->gaji_pokok,0,',','.')?></td>
               <td class="text-center">Rp. <?php echo number_format($j->tj_transport,0,',','.')?></td>
               <td class="text-center">Rp. <?php echo number_format($j->uang_makan,0,',','.')?></td>
-              <td class="text-center">Rp. <?php echo number_format($j->gaji_pokok + $j->tj_transport + $j->uang_makan,0,',','.')?></td>
+              <td class="text-center">Rp. <?php echo number_format($j->gaji_pokok + $j->tj_transport + $j->uang_makan,0,',','.')?></td> -->
+              <td class="text-center">Rp. <?php echo number_format($j->gaji_min,0,',','.')?></td>
+              <td class="text-center">Rp. <?php echo number_format($j->gaji_max,0,',','.')?></td>
               
               <td>
                 <center>
