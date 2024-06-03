@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<div class="card mx-auto" style="width: 35%">
 		<div class="card-header bg-primary text-white text-center">
-			FIlter Laporan Absensi Pegawai
+			FIlter Laporan Absensi Karyawan
 		</div>
 
 		<form method="POST" action="<?php echo base_url('admin/laporan_absensi/cetak_laporan_absensi')?>">

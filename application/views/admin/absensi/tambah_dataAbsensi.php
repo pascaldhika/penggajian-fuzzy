@@ -8,7 +8,7 @@
 
   <div class="card mb-3">
   <div class="card-header bg-primary text-white">
-    Input Absensi Pegawai
+    Input Absensi Karyawan
   </div>
   <div class="card-body">
     <form class="form-inline">

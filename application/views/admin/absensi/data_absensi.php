@@ -5,7 +5,7 @@
 
   <div class="card mb-3">
   <div class="card-header bg-primary text-white">
-    Filter Data Absensi Pegawai
+    Filter Data Absensi 
   </div>
   <div class="card-body">
     <form class="form-inline">
@@ -60,7 +60,7 @@
 
 
 	<div class="alert alert-info">
-		Menampilkan Data Kehadiran Pegawai Bulan: <span class="font-weight-bold"><?php echo $bulan ?></span> Tahun: <span class="font-weight-bold"><?php echo $tahun ?></span>
+		Menampilkan Data Kehadiran Bulan: <span class="font-weight-bold"><?php echo $bulan ?></span> Tahun: <span class="font-weight-bold"><?php echo $tahun ?></span>
 	</div>
 
 	<?php

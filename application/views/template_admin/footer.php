@@ -2,7 +2,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Dwi Febi Fauzi | Penggajian 2020</span>
+            <span>Copyright &copy; Putri Amalia | Penggajian 2024</span>
           </div>
         </div>
       </footer>

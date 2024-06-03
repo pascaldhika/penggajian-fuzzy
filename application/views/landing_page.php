@@ -57,7 +57,7 @@
                         <div>
                            <h2>Penggajian <br> Karyawan</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae animi optio officia impedit quis nulla commodi odit culpa?</p>
+                        <p>Sistem Informasi penggajian karyawan SDIT Qoshru Al Athfal</p>
                      </div>
                   </div>
                   <div class="col headerImg" style="background-image: url('<?php echo base_url()?>assets/img/payroll.svg');"></div>
@@ -230,11 +230,11 @@
                   <div class="team-memeber col-md-6 col-lg-4 col-xl-3">
                      <div class="card">
                         <div class="TopImg">
-                           <img src="<?php echo base_url(); ?>assets/img/me.png" class="rounded-circle w-100 d-block">
+                           <img src="<?php echo base_url(); ?>assets/img/me1.png" class="rounded-circle w-100 d-block">
                         </div>
                         <div class="TeamInfo text-center">
-                           <div class="Name">Dwi Febi Fauzi</div>
-                           <div class="Job">UI & UX Designer</div>
+                           <div class="Name">Putri Amalia</div>
+                           <div class="Job">Mahasiswa</div>
                            <div class="social_links">
                               <div class="social">
                                  <a class="" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -258,7 +258,7 @@
          <div class="container">
             <div class="row">
                <div class="col-12 text-center my-3">
-                  Copyright &copy; Dwi Febi Fauzi | Penggajian 2020 - All Rights Reserved
+                  Copyright &copy; Putri Amalia | Penggajian 2024 - All Rights Reserved
                </div>
             </div>
          </div>

@@ -11,8 +11,8 @@
 </head>
 <body>
 	<center>
-		<h1>PT. Indonesia Bangkit</h1>
-		<h2>Laporan Kehadiran Pegawai</h2>
+		<h1>SDIT Qoshru Al Athfal</h1>
+		<h2>Laporan Kehadiran Karyawan</h2>
 	</center>
 
 	<?php

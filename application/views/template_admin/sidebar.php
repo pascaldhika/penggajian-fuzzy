@@ -58,8 +58,9 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url('admin/laporan_gaji') ?>">Laporan Gaji</a>
-            <a class="collapse-item" href="<?php echo base_url('admin/laporan_absensi') ?>">Laporan Absensi</a>
+            
+            <!-- <a class="collapse-item" href="<?php echo base_url('admin/laporan_gaji') ?>">Laporan Gaji</a> -->
+              <a class="collapse-item" href="<?php echo base_url('admin/laporan_absensi') ?>">Laporan Absensi</a>
             <a class="collapse-item" href="<?php echo base_url('admin/slip_gaji') ?>">Slip Gaji</a>
           </div>
         </div>
@@ -101,7 +102,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <h4 class="font-weight-bold">PT. Indonesia Bangkit</h4>
+          <h4 class="font-weight-bold">SDIT Qoshru Al Athfal</h4>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">

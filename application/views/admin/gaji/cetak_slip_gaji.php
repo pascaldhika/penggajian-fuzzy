@@ -11,8 +11,8 @@
 </head>
 <body>
 	<center>
-		<h1>PT. Indonesia Bangkit</h1>
-		<h2>Daftar Gaji Pegawai</h2>
+		<h1>SDIT Qoshru Al Athfal</h1>
+		<h2>Daftar Gaji</h2>
 		<hr style="width: 50%; border-width: 5px; color: black">
 	</center>
 
@@ -27,7 +27,7 @@
 
 	<table style="width: 100%">
 		<tr>
-			<td width="20%">Nama Pegawai</td>
+			<td width="20%">nama_pegawai</td>
 			<td width="2%">:</td>
 			<td><?php echo $ps->nama_pegawai?></td>
 		</tr>
@@ -66,16 +66,16 @@
 		</tr>
 
 		<tr>
-			<td>2</td>
-			<td>Tunjangan Transportasi</td>
-			<td>Rp. <?php echo number_format($ps->tj_transport,0,',','.') ?></td>
-		</tr>
+    <td>2</td>
+    <td>Tunjangan Transportasi</td>
+    <td>Rp. <?php //echo number_format($ps->tj_transport, 0, '.', ',') ?></td>
+</tr>
 
-		<tr>
-			<td>3</td>
-			<td>Uang Makan</td>
-			<td>Rp. <?php echo number_format($ps->uang_makan,0,',','.') ?></td>
-		</tr>
+<tr>
+    <td>3</td>
+    <td>Uang Makan</td>
+    <td>Rp. <?php //echo number_format($ps->uang_makan, 0, ',', '.') ?></td>
+</tr>
 
 		<tr>
 			<td>4</td>
@@ -100,7 +100,7 @@
 			</td>
 
 			<td width="200px">
-				<p>Tegal, <?php echo date("d M Y")?> <br> Finance,</p>
+				<p>Jombang, <?php echo date("d M Y")?> <br> Bendahara,</p>
 				<br>
 				<br>
 				<p>___________________</p>

@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<div class="card mx-auto" style="width: 35%">
 		<div class="card-header bg-primary text-white text-center">
-			FIlter Slip Gaji Pegawai
+			FIlter Slip Gaji 
 		</div>
 
 		<form method="POST" action="<?php echo base_url('admin/slip_gaji/cetak_slip_gaji')?>">
@@ -40,7 +40,6 @@
 					</select>
 				</div>
 			</div>
-
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-3 col-form-label">Nama Pegawai</label>
 				<div class="col-sm-9">
