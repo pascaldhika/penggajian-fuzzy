@@ -16,37 +16,58 @@ class Data_Penggajian extends CI_Controller {
         }
     }
 
-    private function hitung_gaji_fuzzy($gaji_pokok, $hadir, $sakit, $alpha) {
-        // Definisikan aturan fuzzy berdasarkan kehadiran
-        $total_hadir = $hadir + $sakit;
+    private function hitung_gaji_fuzzy($masa_kerja, $pendidikan, $kehadiran) {
+        // Menentukan kategori masa kerja
+        if ($masa_kerja >= 0 && $masa_kerja <= 12) {
+            $A1 = 'Baru';
+        } elseif ($masa_kerja >= 0 && $masa_kerja <= 24) {
+            $A1 = 'Sedang';
+        } else {
+            $A1 = 'Lama';
+        }
 
         // Menentukan kategori kehadiran
-        if ($total_hadir <= 5) {
-            $kategori = 'Sedikit';
-        } elseif ($total_hadir <= 15) {
-            $kategori = 'Lumayan';
+        $A2 = $pendidikan;
+
+        // Menentukan kategori kehadiran
+        if ($kehadiran >= 0 && $kehadiran <= 7) {
+            $A3 = 'Kurang';
+        } elseif ($kehadiran >= 7 && $kehadiran <= 14) {
+            $A3 = 'Cukup';
         } else {
-            $kategori = 'Banyak';
+            $A3 = 'Baik';
         }
 
-        // Menentukan potongan berdasarkan kategori kehadiran
-        switch ($kategori) {
-            case 'Sedikit':
-                $potongan_per_alpha = 50000;
-                break;
-            case 'Lumayan':
-                $potongan_per_alpha = 34000;
-                break;
-            case 'Banyak':
-                $potongan_per_alpha = 23000;
-                break;
-            default:
-                $potongan_per_alpha = 0;
-                break;
+        $data['predikat'] = $this->db->query("SELECT data_predikat.*, data_rules.Kesimpulan 
+            FROM data_rules 
+            LEFT JOIN data_predikat ON data_rules.No = data_predikat.No
+            WHERE data_rules.A1 = '$A1'
+            AND data_rules.A2 = '$A2'
+            AND data_rules.A3 = '$A3'")->result();
+
+        // Implementasi
+        $nilaiA1 = $data['predikat'][0]->A1;
+        $nilaiA2 = $data['predikat'][0]->A2;
+        $nilaiA3 = $data['predikat'][0]->A3;
+        $Kesimpulan = $data['predikat'][0]->Kesimpulan;
+        
+        $a = array($nilaiA1, $nilaiA2, $nilaiA3);
+        $nilaiMin = min($a);
+
+        if ($Kesimpulan == 'Sedikit') {
+            $gaji_min = 500000;
+            $gaji_max = 750000;
+            $gaji_total = $gaji_max - (($gaji_max - $gaji_min) * $nilaiMin);
+        } elseif ($Kesimpulan == 'Lumayan') {
+            $gaji_min = 750000;
+            $gaji_max = 1350000;
+            $gaji_total = $gaji_min - (($gaji_max - $gaji_min) * $nilaiMin);
+        } else{
+            $gaji_min = 1350000;
+            $gaji_max = 1500000;
+            $gaji_total = $gaji_max - (($gaji_max - $gaji_min) * $nilaiMin);
         }
 
-        $potongan = $alpha * $potongan_per_alpha;
-        $gaji_total = $gaji_pokok - $potongan;
         return $gaji_total;
     }
 
@@ -63,8 +84,8 @@ class Data_Penggajian extends CI_Controller {
             $bulantahun = $bulan.$tahun;
         }
         $data['potongan'] = $this->ModelPenggajian->get_data('potongan_gaji')->result();
-        $data['gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai, data_pegawai.pendidikan,
-            data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok, data_jabatan.gaji_min, data_jabatan.gaji_max,
+        $data['gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai, data_pegawai.pendidikan, TIMESTAMPDIFF(MONTH,data_pegawai.tanggal_masuk,NOW()) AS masa_kerja,
+            data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok,
             data_kehadiran.hadir, data_kehadiran.sakit, data_kehadiran.alpha 
             FROM data_pegawai
             INNER JOIN data_kehadiran ON data_kehadiran.nik = data_pegawai.nik
@@ -73,7 +94,7 @@ class Data_Penggajian extends CI_Controller {
             ORDER BY data_pegawai.nama_pegawai ASC")->result();
 
         foreach ($data['gaji'] as &$gaji) {
-            $gaji->gaji_total = $this->hitung_gaji_fuzzy($gaji->gaji_pokok, $gaji->hadir, $gaji->sakit, $gaji->alpha);
+            $gaji->gaji_total = $this->hitung_gaji_fuzzy($gaji->masa_kerja, $gaji->pendidikan, $gaji->hadir);
         }
 
         $this->load->view('template_admin/header', $data);
@@ -94,7 +115,7 @@ class Data_Penggajian extends CI_Controller {
             $bulantahun = $bulan.$tahun;
         }
         $data['potongan'] = $this->ModelPenggajian->get_data('potongan_gaji')->result();
-        $data['cetak_gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai,
+        $data['cetak_gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai, data_pegawai.pendidikan, TIMESTAMPDIFF(MONTH,data_pegawai.tanggal_masuk,NOW()) AS masa_kerja,
             data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok,
             data_kehadiran.hadir, data_kehadiran.sakit, data_kehadiran.alpha 
             FROM data_pegawai
@@ -104,7 +125,7 @@ class Data_Penggajian extends CI_Controller {
             ORDER BY data_pegawai.nama_pegawai ASC")->result();
 
         foreach ($data['cetak_gaji'] as &$gaji) {
-            $gaji->gaji_total = $this->hitung_gaji_fuzzy($gaji->gaji_pokok, $gaji->hadir, $gaji->sakit, $gaji->alpha);
+            $gaji->gaji_total = $this->hitung_gaji_fuzzy($gaji->masa_kerja, $gaji->pendidikan, $gaji->hadir);
         }
 
         $this->load->view('template_admin/header', $data);

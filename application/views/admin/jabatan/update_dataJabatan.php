@@ -21,7 +21,7 @@
 				<?php echo form_error('nama_jabatan', '<div class="text-small text-danger"> </div>')?>
 			</div>
 
-			<!-- <div class="form-group">
+			<div class="form-group">
 				<label>Gaji Pokok</label>
 				<input type="number" name="gaji_pokok" class="form-control" value="<?php echo $j->gaji_pokok?>">
 				<?php echo form_error('gaji_pokok', '<div class="text-small text-danger"> </div>')?>
@@ -37,18 +37,6 @@
 				<label>Uang Makan</label>
 				<input type="number" name="uang_makan" class="form-control" value="<?php echo $j->uang_makan?>">
 				<?php echo form_error('uang_makan', '<div class="text-small text-danger"> </div>')?>
-			</div> -->
-
-			<div class="form-group">
-				<label>Gaji Minimal</label>
-				<input type="number" name="gaji_min" class="form-control" value="<?php echo $j->gaji_min?>">
-				<?php echo form_error('gaji_min', '<div class="text-small text-danger"> </div>')?>
-			</div>
-
-			<div class="form-group">
-				<label>Gaji Maksimal</label>
-				<input type="number" name="gaji_max" class="form-control" value="<?php echo $j->gaji_max?>">
-				<?php echo form_error('gaji_max', '<div class="text-small text-danger"> </div>')?>
 			</div>
 
 			<button type="submit" class="btn btn-success" >Simpan</button>

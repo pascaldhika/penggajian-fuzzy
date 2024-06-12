@@ -44,19 +44,15 @@ class Data_Jabatan extends CI_Controller {
 			$this->tambah_data();
 		} else {
 			$nama_jabatan	= $this->input->post('nama_jabatan');
-			// $gaji_pokok		= $this->input->post('gaji_pokok');
-			// $tj_transport	= $this->input->post('tj_transport');
-			// $uang_makan		= $this->input->post('uang_makan');
-			$gaji_min		= $this->input->post('gaji_min');
-			$gaji_max		= $this->input->post('gaji_max');
+			$gaji_pokok		= $this->input->post('gaji_pokok');
+			$tj_transport	= $this->input->post('tj_transport');
+			$uang_makan		= $this->input->post('uang_makan');
 
 			$data = array(
 				'nama_jabatan' 	=> $nama_jabatan,
-				// 'gaji_pokok' 	=> $gaji_pokok,
-				// 'tj_transport' 	=> $tj_transport,
-				// 'uang_makan' 	=> $uang_makan,
-				'gaji_min' 		=> $gaji_min,
-				'gaji_max' 		=> $gaji_max,
+				'gaji_pokok' 	=> $gaji_pokok,
+				'tj_transport' 	=> $tj_transport,
+				'uang_makan' 	=> $uang_makan,
 			);
 
 			$this->ModelPenggajian->insert_data($data, 'data_jabatan');
@@ -90,19 +86,15 @@ class Data_Jabatan extends CI_Controller {
 		} else {
 			$id				= $this->input->post('id_jabatan');
 			$nama_jabatan	= $this->input->post('nama_jabatan');
-			// $gaji_pokok		= $this->input->post('gaji_pokok');
-			// $tj_transport	= $this->input->post('tj_transport');
-			// $uang_makan		= $this->input->post('uang_makan');
-			$gaji_min		= $this->input->post('gaji_min');
-			$gaji_max		= $this->input->post('gaji_max');
+			$gaji_pokok		= $this->input->post('gaji_pokok');
+			$tj_transport	= $this->input->post('tj_transport');
+			$uang_makan		= $this->input->post('uang_makan');
 
 			$data = array(
 				'nama_jabatan' 	=> $nama_jabatan,
-				// 'gaji_pokok' 	=> $gaji_pokok,
-				// 'tj_transport' 	=> $tj_transport,
-				// 'uang_makan' 	=> $uang_makan,
-				'gaji_min' 		=> $gaji_min,
-				'gaji_max' 		=> $gaji_max,
+				'gaji_pokok' 	=> $gaji_pokok,
+				'tj_transport' 	=> $tj_transport,
+				'uang_makan' 	=> $uang_makan,
 			);
 
 			$where = array(
@@ -122,11 +114,9 @@ class Data_Jabatan extends CI_Controller {
 
 	public function _rules() {
 		$this->form_validation->set_rules('nama_jabatan','Nama Jabatan','required');
-		// $this->form_validation->set_rules('gaji_pokok','Gaji Pokok','required');
-		// $this->form_validation->set_rules('tj_transport','Tunjangan Transport','required');
-		// $this->form_validation->set_rules('uang_makan','Uang Makan','required');
-		$this->form_validation->set_rules('gaji_min','Gaji Minimal','required');
-		$this->form_validation->set_rules('gaji_max','Gaji Maksimal','required');
+		$this->form_validation->set_rules('gaji_pokok','Gaji Pokok','required');
+		$this->form_validation->set_rules('tj_transport','Tunjangan Transport','required');
+		$this->form_validation->set_rules('uang_makan','Uang Makan','required');
 	}
 
 	public function delete_data($id) {
