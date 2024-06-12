@@ -53,7 +53,6 @@ class Data_Penggajian extends CI_Controller {
         
         $a = array($nilaiA1, $nilaiA2, $nilaiA3);
         $nilaiMin = min($a);
-        // var_dump($data['predikat'][0]); die();
 
         if ($Kesimpulan == 'Sedikit') {
             $gaji_min = 500000;
@@ -93,7 +92,6 @@ class Data_Penggajian extends CI_Controller {
             INNER JOIN data_kehadiran ON data_kehadiran.nik = data_pegawai.nik
             INNER JOIN data_jabatan ON data_jabatan.nama_jabatan = data_pegawai.jabatan
             WHERE data_kehadiran.bulan = '$bulantahun'
-            -- AND data_pegawai.nik='003'
             ORDER BY data_pegawai.nik ASC")->result();
 
         foreach ($data['gaji'] as &$gaji) {
