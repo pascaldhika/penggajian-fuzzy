@@ -47,6 +47,7 @@
             <!-- <a class="collapse-item" href="<?php echo base_url('admin/potongan_gaji') ?>">Setting Potongan Gaji</a> -->
             <a class="collapse-item" href="<?php echo base_url('admin/data_penggajian') ?>">Data Gaji</a>
             <a class="collapse-item" href="<?php echo base_url('admin/data_rules') ?>">Data Rules</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/data_fuzzy') ?>">Data Fuzzy</a>
           </div>
         </div>
       </li>

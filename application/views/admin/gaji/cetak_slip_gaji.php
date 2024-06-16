@@ -64,29 +64,6 @@
 			<td>Gaji Pokok</td>
 			<td>Rp. <?php echo number_format($ps->gaji_pokok,0,',','.') ?></td>
 		</tr>
-
-		<tr>
-    <td>2</td>
-    <td>Tunjangan Transportasi</td>
-    <td>Rp. <?php //echo number_format($ps->tj_transport, 0, '.', ',') ?></td>
-</tr>
-
-<tr>
-    <td>3</td>
-    <td>Uang Makan</td>
-    <td>Rp. <?php //echo number_format($ps->uang_makan, 0, ',', '.') ?></td>
-</tr>
-
-		<tr>
-			<td>4</td>
-			<td>Potongan</td>
-			<td>Rp. <?php echo number_format($potongan_gaji,0,',','.') ?></td>
-		</tr>
-
-		<tr>
-			<th colspan="2" style="text-align: right;">Total Gaji : </th>
-			<th>Rp. <?php echo number_format($ps->gaji_pokok+$ps->tj_transport+$ps->uang_makan-$potongan_gaji,0,',','.') ?></th>
-		</tr>
 	</table>
 
 	<table width="100%">

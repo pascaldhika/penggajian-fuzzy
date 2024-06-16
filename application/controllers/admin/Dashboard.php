@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller {
 		$jabatan = $this->db->query("SELECT * FROM data_jabatan");
 		$kehadiran = $this->db->query("SELECT * FROM data_kehadiran");
 		
-		$data['title'] = "Dashboard";
+		$data['title'] = "Sistem Informasi Penggajian Berbasis Website";
 		$data['pegawai'] = $pegawai->num_rows();
 		$data['admin'] = $admin->num_rows();
 		$data['jabatan'] = $jabatan->num_rows();

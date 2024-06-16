@@ -113,6 +113,11 @@ if($jml_data > 0 ) { ?>
               </tr>
               <?php endforeach; ?>
             </tbody>
+            <tfoot>
+                <tr>
+                  <th class="text-center" colspan="7">Total gaji tersebut sudah melalui perhitungan Fuzyy Tsukamoto</th>
+                </tr>
+            </tfoot>
           </table>
         </div>
       </div>

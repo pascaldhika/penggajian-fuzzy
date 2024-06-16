@@ -83,6 +83,7 @@
 						<td class="text-center">Hadir</td>
 						<td class="text-center">Sakit</td>
 						<td class="text-center">Alpha</td>
+						<td class="text-center">Izin</td>
 		           </tr>
 		         </thead>
 		         <tbody>
@@ -96,6 +97,7 @@
 						<td class="text-center"><?php echo $a->hadir?></td>
 						<td class="text-center"><?php echo $a->sakit?></td>
 						<td class="text-center"><?php echo $a->alpha?></td>
+						<td class="text-center"><?php echo $a->izin?></td>
 					</tr>
 		            </tr>
 		          <?php endforeach; ?>
