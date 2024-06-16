@@ -96,8 +96,6 @@ if($jml_data > 0 ) { ?>
                 <th class="text-center">Jenis Kelamin</th>
                 <th class="text-center">Pendidikan</th>
                 <th class="text-center">Jabatan</th>
-                <th class="text-center">Gaji Pokok</th>
-                <th class="text-center">Potongan</th>
                 <th class="text-center">Total Gaji</th>
               </tr>
             </thead>
@@ -111,8 +109,6 @@ if($jml_data > 0 ) { ?>
                 <td class="text-center"><?php echo $g->jenis_kelamin ?></td>
                 <td class="text-center"><?php echo $g->pendidikan ?></td>
                 <td class="text-center"><?php echo $g->nama_jabatan ?></td>
-                <td class="text-center">Rp. <?php echo number_format($g->gaji_pokok,0,',','.') ?></td>
-                <td class="text-center">Rp. <?php echo number_format($potongan,0,',','.') ?></td>
                 <td class="text-center">Rp. <?php echo number_format($g->gaji_total,0,',','.') ?></td>
               </tr>
               <?php endforeach; ?>
