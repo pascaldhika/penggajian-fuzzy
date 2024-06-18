@@ -37,6 +37,7 @@
 				<th class="text-center">Hadir</th>
 				<th class="text-center">Sakit</th>
 				<th class="text-center">Alpha</th>
+				<th class="text-center">Izin</th>
 			</tr>
 			<?php $no=1; foreach($lap_kehadiran as $l) : ?>
 			<tr>
@@ -47,6 +48,7 @@
 				<td class="text-center"><?php echo $l->hadir ?></td>
 				<td class="text-center"><?php echo $l->sakit ?></td>
 				<td class="text-center"><?php echo $l->alpha ?></td>
+				<td class="text-center"><?php echo $l->izin ?></td>
 			</tr>
 			<?php endforeach ;?>
 		</table>

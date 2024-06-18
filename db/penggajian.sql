@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2024 at 05:34 PM
+-- Generation Time: Jun 18, 2024 at 07:56 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -62,31 +62,32 @@ CREATE TABLE `data_kehadiran` (
   `nama_jabatan` varchar(50) NOT NULL,
   `hadir` int(11) NOT NULL,
   `sakit` int(11) NOT NULL,
-  `alpha` int(11) NOT NULL
+  `alpha` int(11) NOT NULL,
+  `izin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_kehadiran`
 --
 
-INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alpha`) VALUES
-(1, '012021', '0987654321', 'Dodi', 'Laki-Laki', 'Staff Marketing', 24, 0, 0),
-(2, '012021', '123456789', 'Fauzi', 'Laki-Laki', 'Admin', 22, 0, 1),
-(3, '052024', '123456789', 'anis', 'Laki-Laki', 'Admin', 15, 4, 3),
-(4, '052024', '0987654321', 'Dodi', 'Laki-Laki', 'Staff Marketing', 18, 2, 2),
-(5, '052024', '8886969000', 'Vika', 'Perempuan', 'HRD', 20, 1, 1),
-(6, '052024', '011', 'Berliana Riska Faulia ', 'Perempuan', 'Guru', 14, 4, 4),
-(7, '052024', '007', 'Candy Pradana Satya Fauzi', 'Laki-Laki', 'Guru', 21, 1, 0),
-(8, '052024', '004', 'Fitri Zuliyah Ningsih', 'Perempuan', 'Guru', 22, 0, 0),
-(9, '052024', '012', 'M Abdulloh', 'Laki-Laki', 'Guru', 11, 5, 6),
-(10, '052024', '003', 'M Fajar Abdulloh', 'Laki-Laki', 'Guru', 18, 2, 2),
-(11, '052024', '009', 'M Reza Khoiru Mahfidz ', 'Laki-Laki', 'Guru', 18, 3, 1),
-(12, '052024', '010', 'Ngabdul Malik Addemokrasi', 'Laki-Laki', 'Guru', 16, 3, 3),
-(13, '052024', '001', 'Nur Abidah', 'Perempuan', 'Kepala sekolah ', 22, 0, 0),
-(14, '052024', '002', 'Nur Saadah', 'Perempuan', 'Bendahara', 21, 1, 0),
-(15, '052024', '005', 'Riski Dwi Wahyu Anjarsari', 'Perempuan', 'Guru', 22, 0, 0),
-(16, '052024', '006', 'Rohmatul Ummah ', 'Perempuan', 'Guru', 21, 1, 0),
-(17, '052024', '008', 'Vika muminatus', 'Perempuan', 'Tatausaha', 22, 0, 0);
+INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alpha`, `izin`) VALUES
+(1, '012021', '0987654321', 'Dodi', 'Laki-Laki', 'Staff Marketing', 24, 0, 0, NULL),
+(2, '012021', '123456789', 'Fauzi', 'Laki-Laki', 'Admin', 22, 0, 1, NULL),
+(3, '052024', '123456789', 'anis', 'Laki-Laki', 'Admin', 15, 4, 3, NULL),
+(4, '052024', '0987654321', 'Dodi', 'Laki-Laki', 'Staff Marketing', 18, 2, 2, NULL),
+(5, '052024', '8886969000', 'Vika', 'Perempuan', 'HRD', 20, 1, 1, NULL),
+(6, '052024', '011', 'Berliana Riska Faulia ', 'Perempuan', 'Guru', 14, 4, 4, NULL),
+(7, '052024', '007', 'Candy Pradana Satya Fauzi', 'Laki-Laki', 'Guru', 21, 1, 0, NULL),
+(8, '052024', '004', 'Fitri Zuliyah Ningsih', 'Perempuan', 'Guru', 22, 0, 0, NULL),
+(9, '052024', '012', 'M Abdulloh', 'Laki-Laki', 'Guru', 11, 5, 6, NULL),
+(10, '052024', '003', 'M Fajar Abdulloh', 'Laki-Laki', 'Guru', 18, 2, 2, NULL),
+(11, '052024', '009', 'M Reza Khoiru Mahfidz ', 'Laki-Laki', 'Guru', 18, 3, 1, NULL),
+(12, '052024', '010', 'Ngabdul Malik Addemokrasi', 'Laki-Laki', 'Guru', 16, 3, 3, NULL),
+(13, '052024', '001', 'Nur Abidah', 'Perempuan', 'Kepala sekolah ', 22, 0, 0, NULL),
+(14, '052024', '002', 'Nur Saadah', 'Perempuan', 'Bendahara', 21, 1, 0, NULL),
+(15, '052024', '005', 'Riski Dwi Wahyu Anjarsari', 'Perempuan', 'Guru', 22, 0, 0, NULL),
+(16, '052024', '006', 'Rohmatul Ummah ', 'Perempuan', 'Guru', 21, 1, 0, NULL),
+(17, '052024', '008', 'Vika muminatus', 'Perempuan', 'Tatausaha', 22, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -322,7 +323,7 @@ ALTER TABLE `data_jabatan`
 -- AUTO_INCREMENT for table `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
-  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `data_pegawai`

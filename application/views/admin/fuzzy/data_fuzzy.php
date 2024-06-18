@@ -44,7 +44,7 @@
 		       <table class="table table-bordered" width="100%" cellspacing="0">
 		         <thead class="thead-dark">
 		           <tr>
-		              <td class="text-center" style="background-color:#1cc88a;color:white;">Hasil Gaji Putri</td>
+		              <td class="text-center" style="background-color:#1cc88a;color:white;">Hasil Gaji <?php echo $nama_pegawai ?></td>
 		           </tr>
 		         </thead>
 		         <tbody>

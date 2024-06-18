@@ -32,16 +32,19 @@ class Data_Fuzzy extends CI_Controller {
 			$kehadiran = $_GET['kehadiran'];
 
 			$data['gaji'] = $this->ModelPenggajian->hitung_gaji_fuzzy($masa_kerja, $pendidikan, $kehadiran);
+			$data['nama_pegawai'] = $data_pegawai[0]->nama_pegawai;
 			$data['masa_kerja'] = $data['gaji']['masa_kerja'];
 			$data['pendidikan'] = $data['gaji']['pendidikan'];
 			$data['kehadiran'] = $data['gaji']['kehadiran'];
 			// var_dump($data['gaji']['A1']); die();
 		}else{
+			$nama_pegawai = '';
 			$masa_kerja = '';
 			$pendidikan = '';
 			$kehadiran = '';
 
 			$data['gaji'] = [];
+			$data['nama_pegawai'] = '';
 			$data['masa_kerja'] = '';
 			$data['pendidikan'] = '';
 			$data['kehadiran'] = '';
