@@ -55,41 +55,55 @@ class Data_Pegawai extends CI_Controller {
 			$hak_akses		= $this->input->post('hak_akses');
 			$photo			= $_FILES['photo']['name'];
 			$pendidikan		= $this->input->post('pendidikan');
-			if($photo=''){}else{
-				$config['upload_path'] 		= './photo';
-				$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
-				$config['max_size']			= 	2048;
-				$config['file_name']		= 	'pegawai-'.date('ymd').'-'.substr(md5(rand()),0,10);
-				$this->load->library('upload',$config);
-				if(!$this->upload->do_upload('photo')){
-					echo "Photo Gagal Diupload !";
-				}else{
-					$photo=$this->upload->data('file_name');
+			
+			$id_pegawai='';
+			$cek = $this->ModelPenggajian->cek_nik($id_pegawai, $nik);
+
+			if($cek == FALSE) {
+				if($photo=''){}else{
+					$config['upload_path'] 		= './photo';
+					$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
+					$config['max_size']			= 	2048;
+					$config['file_name']		= 	'pegawai-'.date('ymd').'-'.substr(md5(rand()),0,10);
+					$this->load->library('upload',$config);
+					if(!$this->upload->do_upload('photo')){
+						echo "Photo Gagal Diupload !";
+					}else{
+						$photo=$this->upload->data('file_name');
+					}
 				}
-			}
-
-			$data = array(
-				'nik' 			=> $nik,
-				'nama_pegawai' 	=> $nama_pegawai,
-				'username' 		=> $username,
-				'password' 		=> $password,
-				'jenis_kelamin' => $jenis_kelamin,
-				'jabatan' 		=> $jabatan,
-				'tanggal_masuk' => $tanggal_masuk,
-				'status' 		=> $status,
-				'hak_akses' 	=> $hak_akses,
-				'photo' 		=> $photo,
-				'pendidikan' 	=> $pendidikan,
-			);
-
-			$this->ModelPenggajian->insert_data($data, 'data_pegawai');
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<strong>Data berhasil ditambahkan!</strong>
+	
+				$data = array(
+					'nik' 			=> $nik,
+					'nama_pegawai' 	=> $nama_pegawai,
+					'username' 		=> $username,
+					'password' 		=> $password,
+					'jenis_kelamin' => $jenis_kelamin,
+					'jabatan' 		=> $jabatan,
+					'tanggal_masuk' => $tanggal_masuk,
+					'status' 		=> $status,
+					'hak_akses' 	=> $hak_akses,
+					'photo' 		=> $photo,
+					'pendidikan' 	=> $pendidikan,
+				);
+	
+				$this->ModelPenggajian->insert_data($data, 'data_pegawai');
+				$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Data berhasil ditambahkan!</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					</div>');
+				redirect('admin/data_pegawai');
+			} else{
+				$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>NIK sudah digunakan!</strong>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 				</div>');
-			redirect('admin/data_pegawai');
+				redirect('admin/data_pegawai');
+			}
 		}
 
 	}
@@ -125,46 +139,60 @@ class Data_Pegawai extends CI_Controller {
 			$hak_akses		= $this->input->post('hak_akses');
 			$photo			= $_FILES['photo']['name'];
 			$pendidikan		= $this->input->post('pendidikan');
-			if($photo){
-				$config['upload_path'] 		= './photo';
-				$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
-				$config['max_size']			= 	2048;
-				$config['file_name']		= 	'pegawai-'.date('ymd').'-'.substr(md5(rand()),0,10);
-				$this->load->library('upload',$config);
-				if($this->upload->do_upload('photo')){
-					$photo=$this->upload->data('file_name');
-					$this->db->set('photo',$photo);
-				}else{
-					echo $this->upload->display_errors();
+
+			$id_pegawai='';
+			$cek = $this->ModelPenggajian->cek_nik($id_pegawai, $nik);
+
+			if($cek == FALSE) {
+				if($photo){
+					$config['upload_path'] 		= './photo';
+					$config['allowed_types'] 	= 'jpg|jpeg|png|tiff';
+					$config['max_size']			= 	2048;
+					$config['file_name']		= 	'pegawai-'.date('ymd').'-'.substr(md5(rand()),0,10);
+					$this->load->library('upload',$config);
+					if($this->upload->do_upload('photo')){
+						$photo=$this->upload->data('file_name');
+						$this->db->set('photo',$photo);
+					}else{
+						echo $this->upload->display_errors();
+					}
 				}
-			}
-
-			$data = array(
-				'nik' 			=> $nik,
-				'nama_pegawai' 	=> $nama_pegawai,
-				'username' 		=> $username,
-				'password' 		=> $password,
-				'jenis_kelamin' => $jenis_kelamin,
-				'jabatan' 		=> $jabatan,
-				'tanggal_masuk' => $tanggal_masuk,
-				'status' 		=> $status,
-				'hak_akses' 	=> $hak_akses,
-				'pendidikan' 	=> $pendidikan,
-			);
-
-			$where = array(
-				'id_pegawai' => $id
-
-			);
-
-			$this->ModelPenggajian->update_data('data_pegawai', $data, $where);
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<strong>Data berhasil diupdate!</strong>
+	
+				$data = array(
+					'nik' 			=> $nik,
+					'nama_pegawai' 	=> $nama_pegawai,
+					'username' 		=> $username,
+					'password' 		=> $password,
+					'jenis_kelamin' => $jenis_kelamin,
+					'jabatan' 		=> $jabatan,
+					'tanggal_masuk' => $tanggal_masuk,
+					'status' 		=> $status,
+					'hak_akses' 	=> $hak_akses,
+					'pendidikan' 	=> $pendidikan,
+				);
+	
+				$where = array(
+					'id_pegawai' => $id
+	
+				);
+	
+				$this->ModelPenggajian->update_data('data_pegawai', $data, $where);
+				$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Data berhasil diupdate!</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					</div>');
+				redirect('admin/data_pegawai');
+			} else{
+				$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>NIK sudah digunakan!</strong>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 				</div>');
-			redirect('admin/data_pegawai');
+				redirect('admin/data_pegawai');
+			}
 		}
 	}
 

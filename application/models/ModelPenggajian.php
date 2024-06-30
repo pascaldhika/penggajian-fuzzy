@@ -103,6 +103,22 @@ class ModelPenggajian extends CI_model{
 
         return $result;
     }
+
+    public function cek_nik()
+	{
+		$id_pegawai = set_value('id_pegawai');
+		$nik = set_value('nik');
+
+		$result = $this->db->where('nik',$nik)
+							->where('id_pegawai !=',$id_pegawai)
+							->limit(1)
+							->get('data_pegawai');
+		if($result->num_rows()>0){
+			return $result->row();
+		}else{
+			return FALSE;
+		}
+	}
 }
 
 ?>

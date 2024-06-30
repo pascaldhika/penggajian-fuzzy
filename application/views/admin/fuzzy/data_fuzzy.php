@@ -22,7 +22,7 @@
         <label for="masa_kerja">Kehadiran</label>
         <input type="kehadiran" name="kehadiran" class="form-control">
       </div>
-	    <button class="btn btn-success mb-3" type="submit" name="submit" value="submit">Simpan</button>
+	    <button class="btn btn-success mb-3" type="submit" name="submit" value="submit">Hitung</button>
 	</form>
   </div>
 </div>

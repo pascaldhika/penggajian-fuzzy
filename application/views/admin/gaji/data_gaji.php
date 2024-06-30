@@ -95,6 +95,7 @@ if($jml_data > 0 ) { ?>
                 <th class="text-center">Nama Pegawai</th>
                 <th class="text-center">Jenis Kelamin</th>
                 <th class="text-center">Pendidikan</th>
+                <th class="text-center">Kehadiran</th>
                 <th class="text-center">Jabatan</th>
                 <th class="text-center">Total Gaji</th>
               </tr>
@@ -108,6 +109,7 @@ if($jml_data > 0 ) { ?>
                 <td class="text-center"><?php echo $g->nama_pegawai ?></td>
                 <td class="text-center"><?php echo $g->jenis_kelamin ?></td>
                 <td class="text-center"><?php echo $g->pendidikan ?></td>
+                <td class="text-center"><?php echo $g->hadir ?></td>
                 <td class="text-center"><?php echo $g->nama_jabatan ?></td>
                 <td class="text-center">Rp. <?php echo number_format($g->gaji_total,0,',','.') ?></td>
               </tr>
@@ -115,7 +117,7 @@ if($jml_data > 0 ) { ?>
             </tbody>
             <tfoot>
                 <tr>
-                  <th class="text-center" colspan="7">Total gaji tersebut sudah melalui perhitungan Fuzyy Tsukamoto</th>
+                  <th class="text-center" colspan="8">Total gaji tersebut sudah melalui perhitungan Fuzyy Tsukamoto</th>
                 </tr>
             </tfoot>
           </table>

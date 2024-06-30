@@ -64,6 +64,7 @@
             <!-- <a class="collapse-item" href="<?php echo base_url('admin/laporan_gaji') ?>">Laporan Gaji</a> -->
               <a class="collapse-item" href="<?php echo base_url('admin/laporan_absensi') ?>">Laporan Absensi</a>
             <a class="collapse-item" href="<?php echo base_url('admin/slip_gaji') ?>">Slip Gaji</a>
+            <a class="collapse-item" href="<?php echo base_url('admin/laporan_data_fuzzy') ?>">Laporan Data Fuzzy</a>
           </div>
         </div>
       </li>
