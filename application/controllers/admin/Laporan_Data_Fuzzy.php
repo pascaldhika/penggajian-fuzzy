@@ -19,6 +19,7 @@ class Laporan_Data_Fuzzy extends CI_Controller {
 	public function index() {	
 		$data['title'] = "Laporan Data Fuzzy";
 		$data['pegawai'] = $this->ModelPenggajian->get_data('data_pegawai')-> result();
+		$data['gaji'] = $this->db->query("SELECT * FROM data_fuzzy ORDER BY nama_pegawai ASC")->result();
 
 		$this->load->view('template_admin/header',$data);
 		$this->load->view('template_admin/sidebar');
@@ -31,12 +32,14 @@ class Laporan_Data_Fuzzy extends CI_Controller {
 		$data['title'] = "Cetak Laporan Data Fuzzy";
 
 		if($this->input->post('nama_pegawai')){
-				$nama_pegawai = $this->input->post('nama_pegawai');
-			}else{
-				$nama_pegawai = '';
-			}
+			$nama_pegawai = $this->input->post('nama_pegawai');
+			$data['lap_data_fuzzy'] = $this->db->query("SELECT * FROM data_fuzzy WHERE nama_pegawai='$nama_pegawai' ORDER BY nama_pegawai ASC")->result();
+		}else{
+			$nama_pegawai = '';
+			$data['lap_data_fuzzy'] = $this->db->query("SELECT * FROM data_fuzzy ORDER BY nama_pegawai ASC")->result();
+		}
 		$data['nama_pegawai'] = $nama_pegawai;
-		$data['lap_data_fuzzy'] = $this->db->query("SELECT * FROM data_fuzzy WHERE nama_pegawai='$nama_pegawai' ORDER BY nama_pegawai ASC")->result();
+		
 		$this->load->view('template_admin/header',$data);
 		$this->load->view('admin/fuzzy/cetak_fuzzy', $data);
 	}
